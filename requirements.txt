@@ -3,3 +3,4 @@ requests
 gunicorn
 beautifulsoup4
 flask-cors
+curl_cffi
