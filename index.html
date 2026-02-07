@@ -714,7 +714,7 @@
 
       <div class="info-card">
         <p>
-          <strong>Stripe Premium Gateway</strong> - Fast checking with automatic registration and <u>3 sec limit</u> to
+          <strong>Stripe Premium Gateway</strong> - Fast checking with automatic registration and <u>1 sec limit</u> to
           avoid overlap.
         </p>
       </div>
@@ -783,8 +783,8 @@
 
   <script>
     // SET THIS TO YOUR VERCEL URL IF HOSTING ON GITHUB PAGES
-    // Example: const API_BASE_URL = 'https://your-app.vercel.app';
     const API_BASE_URL = 'https://stripe-checker-eight.vercel.app';
+    const API_PATH = '/api/stripe10';
 
     function toggleMenu() {
       document.getElementById('dropdown-menu').classList.toggle('show');
@@ -826,7 +826,7 @@
       }
 
       // Limit Check
-      const limit = 1000;
+      const limit = 50;
       if (cards.length > limit) {
         Swal.fire('Limit Exceeded', `You can only check up to ${limit} cards.`, 'error');
         return;
@@ -840,15 +840,15 @@
         const card = cards[i].trim();
 
         if (i > 0) {
-          appendToStatus(`⏳ Waiting: 2 second(s) left...\n`);
-          await new Promise(r => setTimeout(r, 2000));
+          appendToStatus(`⏳ Waiting: 1 second(s) left...\n`);
+          await new Promise(r => setTimeout(r, 1000));
         }
 
         appendToStatus(`➡️ Checking card ${i + 1} of ${cards.length}: ${card}\n`);
 
         try {
           const proxy = ""; // Set proxy here if needed, or add a proxy input to UI
-          let url = `${API_BASE_URL}/api/stripe2?auth=${encodeURIComponent(card)}`;
+          let url = `${API_BASE_URL}${API_PATH}?auth=${encodeURIComponent(card)}`;
           if (proxy) url += `&proxy=${encodeURIComponent(proxy)}`;
 
           const res = await fetch(url);
