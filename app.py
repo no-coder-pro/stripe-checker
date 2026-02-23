@@ -7,9 +7,10 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/', methods=['GET'])
-def home():
-    """Serve the index page from root"""
-    return send_from_directory('.', 'index.html')
+@app.route('/<path:filename>', methods=['GET'])
+def home(filename='index.html'):
+    """Serve the root files (index.html, style.css, script.js, etc.)"""
+    return send_from_directory('.', filename)
 
 @app.route('/api/stripe1', methods=['GET'])
 def cloudveil_payment():
