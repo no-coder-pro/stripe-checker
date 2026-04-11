@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Stripe CC Checker</title>
+  <meta name="description"
+    content="Free online credit card bulk checker and validator. Fast, secure, and reliable tool for validating credit card numbers with advanced features and API support.">
+  <meta name="keywords"
+    content="credit card checker, card validator, bulk checker, credit card validation, bin checker, free card checker">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Stripe CC Checker">
+  <meta property="og:description" content="Free online credit card bulk checker and validator.">
+
+  <!-- Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <meta name="theme-color" content="#1e3a8a">
+  <link rel="icon" type="image/png" href="https://bbinl.site/cc-gen/favicon.png">
+  <link rel="stylesheet" href="style.css?v=1.2">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Navigation Section -->
+    <nav class="navigations">
+      <a href="https://bbinl.site/" class="site-header">
+        <img src="https://bbinl.site/cc-gen/favicon.png" alt="Logo" class="header-logo">
+        Stripe Checker
+      </a>
+      <div class="menu-container">
+        <div onclick="toggleMenu()" class="menu-toggle"><i class="fas fa-bars"></i></div>
+        <ul id="dropdown-menu" class="dropdown-menu">
+                    <li><a href="https://bbinl.site/cc-gen/" target="_blank">cc generator</a></li>
+                    <li><a href="https://bbinl.site/cc-checker-faker/" target="_blank">cc checker</a></li>
+                    <li><a href="https://bbinl.site/stripe-checker/" target="_blank">stripe cc checker</a></li>
+                    <li><a href="https://bbinl.site/vbv-checker/" target="_blank">vbv checker</a></li>
+                    <li><a href="https://bbinl.site/checker-top/" target="_blank">checker.top</a></li>
+                    <li><a href="https://bbinl.site/b3-checker/" target="_blank">b3 cc checker</a></li>
+                    <li><a href="https://bbinl.site/fake-address/" target="_blank">Fake Address</a></li>
+                    <li><a href="https://t.me/bro_bin_lagbe" target="_blank">Join Us</a></li>
+                    <li><a href="https://bbinl.site/all-api/" target="_blank">bBINl all API</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="text-center" style="margin: 20px 0;">
+      <script type="text/javascript">
+        atOptions = {
+          'key': 'aeb1dc240df8fbfaef1b2b68907cfd5a',
+          'format': 'iframe',
+          'height': 60,
+          'width': 468,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" async
+        src="//www.highperformanceformat.com/aeb1dc240df8fbfaef1b2b68907cfd5a/invoke.js"></script>
+    </div>
+
+    <div class="container">
+      <!-- info notice -->
+      <div class="info-card">
+        <p>
+          <strong>Stripe Premium Gateway</strong> - Fast checking with automatic registration and <u>1 sec limit</u> to
+          avoid overlap.
+        </p>
+      </div>
+
+      <div class="row">
+        <!-- FORM SECTION -->
+        <div class="col-md-6">
+          <div class="app-card">
+            <div class="form-group" style="height: 100%; display: flex; flex-direction: column; margin-bottom: 0;">
+              <label for="numbers"><i class="fa-solid fa-credit-card icon-sm"></i> Credit Card Numbers</label>
+              <textarea id="numbers" cols="30" rows="11" class="form-control"
+                placeholder="4111111111111111|12|25|123&#10;5500000000000004|11|24|456"
+                style="flex-grow: 1;"></textarea>
+
+              <div class="action-buttons form-group-inline" style="margin-top: 15px; margin-bottom: 0px;">
+                <div class="form-group" style="margin-bottom: 0;">
+                  <button id="check-btn" class="btn btn-primary btn-block" onclick="toggleButtons()"><i
+                      class="fa-solid fa-play"></i> Start</button>
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                  <button id="stop-check-btn" class="btn btn-secondary btn-block text-red" disabled><i
+                      class="fa-solid fa-stop"></i> Stop</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESULT SECTION -->
+        <div class="col-md-6">
+          <div class="app-card">
+            <div class="form-group" style="height: 100%; display: flex; flex-direction: column; margin-bottom: 0;">
+              <label for="result-output"><i class="fa-solid fa-terminal icon-sm"></i> Checking Status</label>
+              <textarea id="result-output" readonly cols="30" rows="11" class="form-control result"
+                style="flex-grow: 1;" placeholder="Checking status will appear here..."></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-md-6">
+          <div class="app-card" style="padding: 15px;">
+            <h2 class="checker-title">Live <span class="text-green" id="ali-count">0</span></h2>
+            <textarea id="ali-numbers" class="form-control" readonly
+              style="min-height: 250px; margin-bottom: 15px; font-size: 13px;"></textarea>
+            <button class="btn btn-secondary btn-block text-green" onclick="copyToClipboard('ali-numbers')"><i
+                class="fa-regular fa-copy"></i> Copy Live</button>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="app-card" style="padding: 15px;">
+            <h2 class="checker-title">Dead <span class="text-red" id="muhammad-count">0</span></h2>
+            <textarea id="muhammad-numbers" class="form-control" readonly
+              style="min-height: 250px; margin-bottom: 15px; font-size: 13px;"></textarea>
+            <button class="btn btn-secondary btn-block text-red" onclick="copyToClipboard('muhammad-numbers')"><i
+                class="fa-regular fa-copy"></i> Copy Dead</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center" style="margin: 20px 0;">
+      <script type="text/javascript">
+        atOptions = {
+          'key': '3c1293e760852e3cc5ffaaca4c1f2e77',
+          'format': 'iframe',
+          'height': 50,
+          'width': 320,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" async
+        src="//www.highperformanceformat.com/3c1293e760852e3cc5ffaaca4c1f2e77/invoke.js"></script>
+    </div>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+      <p>&copy; 2026 Stripe Checker. All Rights Reserved.</p>
+      <p style="margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 15px;">
+        <span><i class="fa-brands fa-telegram"></i> <a href="https://t.me/bro_bin_lagbe" target="_blank">Bro Bin
+            Lagbe</a></span>
+        <span style="color: var(--border);">|</span>
+        <span><i class="fa-solid fa-code"></i> <a href="https://t.me/no_coder_pro" target="_blank">No Coder
+            pro</a></span>
+      </p>
+    </footer>
+  </div>
+
+  <script src="script.js?v=1.4" defer></script>
+</body>
+
+</html>
