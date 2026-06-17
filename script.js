@@ -1,5 +1,5 @@
 const API_BASE_URL = 'https://stripe-gules-gamma.vercel.app';
-const API_PATH = '/api/stripe4';
+const API_PATH = '/api/stripe1';
 
 const checkBtn = document.getElementById('check-btn');
 const stopCheckBtn = document.getElementById('stop-check-btn');
